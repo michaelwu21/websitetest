@@ -4,7 +4,7 @@
     padding: 8px;
     display: inline-block;
     }
-input[type=text], password {
+input[type=text], [type=password] {
     width: 40%;
     margin: 15px;
     padding: 15px 20px;
