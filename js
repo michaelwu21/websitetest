@@ -1,4 +1,4 @@
-var checkuser = function() {
+function checkuser() {
   if(document.auth.email.value==="Michaelwu21"){
   if(document.auth.email.value==="304014"){
   window.location= "michaelwu21.github.io/websitetest/home/index.html"
