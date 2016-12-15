@@ -1,17 +1,23 @@
 #login {
     background-color: #bbbfbb;
+    width: 55%;
+    padding: 8px;
     }
-input[type=text] {
-    width: 50%;
-    margin: 8px;
+input[type=text], password {
+    width: 40%;
+    margin: 15px;
     padding: 15px 20px;
     border-radius: 5px;
     background-color: #ffffff;
 }
 input[type=button] {
-    width: 50%;
-    padding: 13px 20px;
-    margin-top: 8px;
-    border: none;
+    width: 40%;
     background-color: #0fdd20;
+    color: white; 
+    padding: 13px 20px;
+    margin-top: 15px;
+    border: none;
+}
+input[type=button]:hover {
+    background-color: #0b8e25;
 }
