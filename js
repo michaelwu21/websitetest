@@ -12,11 +12,14 @@ var useremail = document.auth.email.value;
   };
 
 function createacc() {
-  if(open === false || undefined) {
-    		var open = true;
+  if(open === false) {
+    		open = true;
 		document.getElementById("createacc").style.visibility="visible";
-    }else{
+    }else if(open != null){
       open = false;
       document.getElementById("createacc").style.visibility="hidden";
-      }
+      }else{
+      var open=true;
+      document.getElementById("createacc").style.visibility="visible";
+}
 };
