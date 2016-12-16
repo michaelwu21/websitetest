@@ -27,11 +27,12 @@ input[type=button]:hover {
     cursor: pointer;
 }
 #createacc {
-    background-color: #d9dbdd;
+	background-color: #d9dbdd;
+	width: 55%;
 	visibility: hidden;
 	padding: 8px
+	display: inline-block
 	border-radius: 12px;
-	width: 55%
 }
 #noacc {
 	color:#0000EE;
@@ -39,4 +40,5 @@ input[type=button]:hover {
 }
 #noacc:hover {
 	color:#0B0080;
+	cursor: pointer;
 }
