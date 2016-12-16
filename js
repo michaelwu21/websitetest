@@ -14,9 +14,9 @@ var useremail = document.auth.email.value;
 function createacc() {
   if(open === false || null) {
     		var open = true;
-		document.getElementById("createacc").style.visibility= "visible";
+		document.getElementById("createacc").style.visibility="visible";
     }else{
       open = false;
-      document.getElementById("createacc").style.visibility= "hidden"
+      document.getElementById("createacc").style.visibility="hidden";
       }
 };
