@@ -31,7 +31,7 @@ input[type=button]:hover {
 	width: 55%;
 	visibility: hidden;
 	padding: 8px;
-	display: inline-block
+	display: inline-block;
 	border-radius: 12px;
 }
 #noacc {
