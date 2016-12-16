@@ -20,8 +20,8 @@ function createacc() {
     }else{
       open = false;
       document.getElementById("createacc").style.width= "0%";
-			document.getElementById("user_acc").innerHTML = "";
-			document.getElementById("user_password").innerHTML = "";
+			document.getElementById("acc_user").innerHTML = "";
+			document.getElementById("acc_password").innerHTML = "";
       }
 };
 
