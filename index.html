@@ -17,19 +17,28 @@
   firebase.initializeApp(config);
 </script>
 	</head>    
-<body>
+<body onload="createaccsetup()">
 <br>
 	<center>
 	<div id="login">
 		<form name = "auth">
-			Email:<br>
+			<label>Username:</label><br>
 			<input type="text" name = "email"><br>
-			Password:<br>
+			<label>Password:</label><br>
 			<input type="password" name = "password"><br>
 			<input type="button" value = "Submit" onClick="checkuser()">
 		</form>
 		<h3 id="wrongpass"></h3>
 	</div>  
+	<div id="createacc">
+		<form name = "create_account">
+			<label>Account Username:</label>
+			<input type="text" name = "create_email">
+			<label>Account Password:</label>
+			<input type="password" name = "create_password">
+		</form>
+		
+	</div>	
 	</center>	
 </body>
 </html>
