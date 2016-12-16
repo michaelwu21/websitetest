@@ -37,3 +37,6 @@ input[type=button]:hover {
 	color:#0000EE;
 	font-size: 15px;
 }
+#noacc:hover {
+	color:#0B0080;
+}
