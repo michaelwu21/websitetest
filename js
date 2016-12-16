@@ -12,7 +12,7 @@ var useremail = document.auth.email.value;
   };
 
 function createacc() {
-  if(open === false || null) {
+  if(open === false || undefined) {
     		var open = true;
 		document.getElementById("createacc").style.visibility="visible";
     }else{
