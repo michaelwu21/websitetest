@@ -30,7 +30,7 @@ input[type=button]:hover {
 	background-color: #d9dbdd;
 	width: 55%;
 	visibility: hidden;
-	padding: 8px
+	padding: 8px;
 	display: inline-block
 	border-radius: 12px;
 }
