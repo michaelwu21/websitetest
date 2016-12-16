@@ -29,7 +29,7 @@ input[type=button]:hover {
 #createacc {
 	background-color: #d9dbdd;
 	width: 55%;
-	display: hidden;
+	display: none;
 	padding: 8px;
 	border-radius: 12px;
 }
