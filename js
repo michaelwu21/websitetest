@@ -17,13 +17,9 @@ function createacc() {
 		document.getElementById("createacc").style.display="block";
 		var loginid=document.getElementById("login");
 		loginid.style.display="none";
-
-    }else if(open != null){
-      open = false;
-      document.getElementById("createacc").style.display="none";
       }else{
 		var open=true;
-		document.getElementById("createacc").style.visibility="visible";
+		document.getElementById("createacc").style.display="block";
 		var loginid=document.getElementById("login");
 		loginid.style.display="none";
 }
