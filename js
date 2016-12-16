@@ -16,10 +16,10 @@ function createacc() {
     		var open = true;
 		document.getElementById("user_acc").innerHTML = "Account Username:";
 		dcoument.getElementById("user_password").innerHTML = "Account Password:";
-		document.getElementById("createacc").style.width= "40%";
+		document.getElementById("createacc").style.visibility= "visible";
     }else{
       open = false;
-      document.getElementById("createacc").style.width= "0%";
+      document.getElementById("createacc").style.visibility= "hidden";
 			document.getElementById("acc_user").innerHTML = "";
 			document.getElementById("acc_password").innerHTML = "";
       }
