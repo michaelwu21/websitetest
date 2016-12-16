@@ -14,28 +14,25 @@ var useremail = document.auth.email.value;
 function createacc() {
   if(open === false) {
     		open = true;
-		document.getElementById("createacc").style.visibility="visible";
+		document.getElementById("createacc").style.display="block";
 		var loginid=document.getElementById("login");
-		loginid.style.visibility="hidden";
-		loginid.style.height="0%"
+		loginid.style.display="none";
 
     }else if(open != null){
       open = false;
-      document.getElementById("createacc").style.visibility="hidden";
+      document.getElementById("createacc").style.display="none";
       }else{
 		var open=true;
 		document.getElementById("createacc").style.visibility="visible";
 		var loginid=document.getElementById("login");
-		loginid.style.visibility="hidden";
-		loginid.style.height="0%"
+		loginid.style.display="none";
 }
 };
 
 function alreadyhaveacc() {
 	open=false;
-	document.getElementById("createacc").style.visibility="hidden";
+	document.getElementById("createacc").style.display="none";
 	var loginid=document.getElementById("login");
-		loginid.style.visibility="visible";
-		loginid.style.height="100%"
+		loginid.style.display="block";
 }
 	
