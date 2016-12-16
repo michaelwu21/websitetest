@@ -31,7 +31,6 @@ input[type=button]:hover {
 	width: 55%;
 	display: hidden;
 	padding: 8px;
-	display: inline-block;
 	border-radius: 12px;
 }
 #noacc {
