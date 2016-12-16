@@ -35,7 +35,7 @@ function alreadyhaveacc() {
 	open=false;
 	document.getElementById("createacc").style.visibility="hidden";
 	var loginid=document.getElementById("login");
-		loginid.style.visibility="hidden";
+		loginid.style.visibility="visible";
 		loginid.style.height="100%"
 }
 	
