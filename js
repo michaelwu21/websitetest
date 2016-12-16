@@ -17,10 +17,14 @@ function createaccsetup() {
 function createacc() {
   if(create_is_open === false) {
     create_is_open = true;
-    document.getElementById("createacc").style.width= "40%";
+		document.getElementById("user_acc").innerHTML = "Account Username:";
+		dcoument.getElementById("user_password").innerHTML = "Account Password:";
+		document.getElementById("createacc").style.width= "40%";
     }else{
       create_is_open = false;
       document.getElementById("createacc").style.width= "0%";
+			document.getElementById("user_acc").innerHTML = "";
+			document.getElementById("user_password").innerHTML = "";
       }
 };
 
