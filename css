@@ -3,7 +3,7 @@
     width: 55%;
     padding: 8px;
     display: inline-block;
-    border-radius: 8px;
+    border-radius: 12px;
     }
 input[type=text], [type=password] {
     width: 40%;
@@ -26,5 +26,12 @@ input[type=button]:hover {
     background-color: #0b8e25;
     cursor: pointer;
 }
-
-        
+#createacc {
+    background-color: #d9dbdd;
+	width: 0%;
+	border-radius: 12px;
+}
+#noacc {
+	color:#0000EE;
+	font-size: 15px;
+}
