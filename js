@@ -16,11 +16,9 @@ function createacc() {
     		var open = true;
 		document.getElementById("acc_user").innerHTML = "Account Username:";
 		dcoument.getElementById("acc_password").innerHTML = "Account Password:";
-		document.getElementById("createacc").style.width= "40%";
+		document.getElementById("createacc").style.visibility= "visible";
     }else{
       open = false;
-      document.getElementById("createacc").style.width= "0%";
-			document.getElementById("acc_user").innerHTML = "";
-			document.getElementById("acc_password").innerHTML = "";
+      document.getElementById("createacc").style.visibility= "hidden"
       }
 };
