@@ -25,7 +25,7 @@
 			<input type="text" name = "email"><br>
 			<label>Password:</label><br>
 			<input type="password" name = "password"><br>
-			<input type="button" value = "Submit" onClick="checkuser()">
+			<input type="submit" value = "Submit" onClick="checkuser()">
 		</form>
 		<p id="noacc" onClick="createacc()">No Account? Click Here</p>
 		<h3 id="wrongpass"></h3>
@@ -33,9 +33,12 @@
 	<div id="createacc">
 		<form name = "create_account">
 			<label id="acc_user">Create Account Username:</label><br>
-			<input type="text" name = "create_email"><br>
+			<input type="text" name = "create_user"><br>
 			<label id="acc_password">Create Account Password:</label><br>
-			<input type="password" name = "create_password">
+			<input type="password" name = "create_password"><br>
+			<label id="acc_email">Email Address:</label><br>
+			<input type="text" name = "create_email">
+			<input type="submit" value = "Create Account" onClick="createnewacc">
 		</form>
 		<p id="noacc" onClick="alreadyhaveacc()">Have an account? Login</p>
 		
