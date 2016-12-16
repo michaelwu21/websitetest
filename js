@@ -15,13 +15,27 @@ function createacc() {
   if(open === false) {
     		open = true;
 		document.getElementById("createacc").style.visibility="visible";
-		document.getElementById("login").style.visibility="hidden";
+		var loginid=document.getElementById("login");
+		loginid.style.visibility="hidden";
+		loginid.style.height="0%"
+
     }else if(open != null){
       open = false;
       document.getElementById("createacc").style.visibility="hidden";
       }else{
-      var open=true;
-      document.getElementById("createacc").style.visibility="visible";
-      document.getElementById("login").style.visibility="hidden";
+		var open=true;
+		document.getElementById("createacc").style.visibility="visible";
+		var loginid=document.getElementById("login");
+		loginid.style.visibility="hidden";
+		loginid.style.height="0%"
 }
 };
+
+function alreadyhaveacc() {
+	open=false;
+	document.getElementById("createacc").style.visibility="hidden";
+	var loginid=document.getElementById("login");
+		loginid.style.visibility="hidden";
+		loginid.style.height="100%"
+}
+	
