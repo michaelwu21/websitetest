@@ -10,4 +10,17 @@ var useremail = document.auth.email.value;
     document.getElementById("wrongpass").innerHTML= "Sorry, but that password/email is incorrect, please try again";
   }
   };
-  
+
+function createaccsetup() {
+  var create_is_open = false;
+};
+function createacc() {
+  if(create_is_open === false) {
+    create_is_open = true;
+    document.getElementById("createacc").style.width= "40%";
+    }else{
+      create_is_open = false;
+      document.getElementById("createacc").style.width= "0%";
+      }
+};
+
