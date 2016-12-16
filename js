@@ -14,13 +14,13 @@ var useremail = document.auth.email.value;
 function createacc() {
   if(open === false || null) {
     		var open = true;
-		document.getElementById("user_acc").innerHTML = "Account Username:";
-		dcoument.getElementById("user_password").innerHTML = "Account Password:";
+		document.getElementById("acc_user").innerHTML = "Account Username:";
+		dcoument.getElementById("acc_password").innerHTML = "Account Password:";
 		document.getElementById("createacc").style.width= "40%";
     }else{
       open = false;
       document.getElementById("createacc").style.width= "0%";
-			document.getElementById("user_acc").innerHTML = "";
-			document.getElementById("user_password").innerHTML = "";
+			document.getElementById("acc_user").innerHTML = "";
+			document.getElementById("acc_password").innerHTML = "";
       }
 };
