@@ -30,7 +30,7 @@ function alreadyhaveacc() {
 	document.getElementById("createacc").style.display="none";
 	var loginid=document.getElementById("login");
 		loginid.style.display="block";
-}
+};
 
 //acc custom object creator
 function account (username, password, email, gender, age) {
@@ -48,4 +48,4 @@ function createnewacc() {
 	var gender = document.create_account.select.options.selected.value;
 	var age = document.create_account.age.value;
 	account(username, password, email, gender, age);
-	}
+	};
