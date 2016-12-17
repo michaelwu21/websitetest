@@ -5,7 +5,7 @@
     display: inline-block;
     border-radius: 12px;
     }
-input[type=text], [type=password] {
+input[type=text], [type=password], [type=number] {
     width: 40%;
     margin: 15px;
     padding: 12px 20px;
