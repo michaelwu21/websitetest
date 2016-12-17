@@ -2,14 +2,14 @@ function checkuser() {
 var useremail = document.auth.email.value.replace(/\s/g,'');
   if(useremail.toLowerCase() === "michaelwu21"){
     if(document.auth.password.value==="304014"){
-      window.location= "https://michaelwu21.github.io/websitetest/home/index.html"
+      window.location= "https://michaelwu21.github.io/websitetest/home/index.html";
     }else{
       document.getElementById("wrongpass").innerHTML= "Sorry, but that password is incorrect, please try again";
     }
   }else{
     document.getElementById("wrongpass").innerHTML= "Sorry, but that password/email is incorrect, please try again";
   }
-  };
+  }
 
 function createacc() {
   if(open === false) {
@@ -64,7 +64,7 @@ function create_back() {
 
 //check info for creating account
 function create_checkinfo(username, password, email, gender, age){
-	if(username != '' || null){
+	if(username != "" || null){
 	if(password.length > 5){
 	if(email.search("@") != -1){
 	if(email.search(".") != -1){
