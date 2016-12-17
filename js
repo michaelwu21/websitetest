@@ -49,3 +49,13 @@ function createnewacc() {
 	var age = document.create_account.age.value;
 	account(username, password, email, gender, age);
 	};
+//switch create account pages
+function create_nextpage() {
+	document.getElementById("create_firstpage").style.display="none";
+	document.getElementById("create_secondpage").style.display="block";
+};
+//back to first page
+function create_back() {
+	document.getElementById("create_secondpage").style.display="none";
+	document.getElementById("create_firstpage").style.display="block";
+};
