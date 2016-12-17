@@ -84,5 +84,6 @@ function create_checkinfo(username, password, email, gender, age){
 	}
 	}else{
 	document.getElementById("create_incorrectage").style.display="block";
+	}
 	};
 
