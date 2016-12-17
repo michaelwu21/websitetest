@@ -3,24 +3,12 @@
     <title>Michaelwu21</title>
 	<script type="text/javascript" src="js"></script>
 	<link rel="stylesheet" href="css" />
-<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyAVGPjwclhjP64PS-Pq9tHyz0JDNPauBfQ",
-    authDomain: "websitetest-4ec54.firebaseapp.com",
-    databaseURL: "https://websitetest-4ec54.firebaseio.com",
-    storageBucket: "websitetest-4ec54.appspot.com",
-    messagingSenderId: "390249574104"
-  };
-  firebase.initializeApp(config);
-</script>
 	</head>    
 <body>
 <br>
 	<center>
 	<div id="login">
-		<span id="redborder"><h1 class="sign">Sign In</h1></span>
+		<h1 class="sign">Sign In</h1>
 		<form name = "auth">
 			<label>Username:</label><br>
 			<input type="text" name = "email"><br>
@@ -34,7 +22,7 @@
 	<div id="createacc">
 		<form name = "create_account">
 			<div id="create_firstpage">
-				<span id="redborder"><h1 class="sign">Sign Up</h1></span>
+				<h1 class="sign">Sign Up</h1>
 			<label id="acc_user">Create Account Username: </label>
 			<input type="text" name = "create_user"><br>
 			<label id="acc_password">Create Account Password: </label>
@@ -45,7 +33,7 @@
 			<input type="button" value="Next Page" onClick="create_nextpage()">
 			</div>
 			<div id="create_secondpage">
-				<span id="redborder"><h1 class = "sign">Sign Up</h1></span>
+				<h1 class = "sign">Sign Up</h1>
 			<label>Gender: &nbsp; </label>
 			<select name = "create_gender"><br>
 				<option value="create_male">Male</option>
