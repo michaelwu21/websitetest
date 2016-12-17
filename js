@@ -1,5 +1,5 @@
 function checkuser() {
-var useremail = document.auth.email.value;
+var useremail = document.auth.email.value.replace(/\s/g,'');
   if(useremail.toLowerCase() === "michaelwu21"){
     if(document.auth.password.value==="304014"){
       window.location= "https://michaelwu21.github.io/websitetest/home/index.html"
