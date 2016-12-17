@@ -41,3 +41,9 @@ input[type=button]:hover {
 	color:#0B0080;
 	cursor: pointer;
 }
+#right {
+	float: right;
+}
+#create_secondpage {
+	display: none;
+}
