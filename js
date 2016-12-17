@@ -61,3 +61,28 @@ function create_back() {
 	document.getElementById("create_secondpage").style.display="none";
 	document.getElementById("create_firstpage").style.display="block";
 };
+
+//check info for creating account
+function create_checkinfo(username, password, email, gender, age){
+	if(username != '' || null){
+	if(password.length > 5){
+	if(email.search("@") != -1){
+	if(email.search(".") != -1){
+	if(isNaN(age) === false){
+	account(username, password, email, gender, age);
+	}else{
+	document.getElementById("create_incorrectusername").style.display="block";
+	}
+	}else{
+	document.getElementById("create_incorrectpassword").style.display="block";
+	}
+	}else{
+	document.getElementById("create_incorrectemail").style.display="block";
+	}
+	}else{
+	document.getElementById("create_incorrectemail").style.display="block";
+	}
+	}else{
+	document.getElementById("create_incorrectage").style.display="block";
+	};
+
