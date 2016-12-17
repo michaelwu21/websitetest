@@ -31,4 +31,21 @@ function alreadyhaveacc() {
 	var loginid=document.getElementById("login");
 		loginid.style.display="block";
 }
-	
+
+//acc custom object creator
+function account (username, password, email, gender, age) {
+	this.username = username;
+	this.password = password;
+	this.email = email;
+	this.gender = gender;
+	this.age = age;
+};
+//create the acc using custom acc object creator
+function createnewacc() {
+	var username = document.createacc.acc_user.value.toLowerCase();
+	var password = document.createacc.acc_password.value;
+	var email = document.createacc.acc.email.value;
+	var gender = document.createacc.select.options.selected.value;
+	var age = document.createacc.age.value;
+	account(username, password, email, gender, age);
+	}
