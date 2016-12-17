@@ -28,6 +28,8 @@ function createacc() {
 function alreadyhaveacc() {
 	open=false;
 	document.getElementById("createacc").style.display="none";
+	document.getElementById("create_firstpage).style.display="block";
+	document.getElementById("create_secondpage).style.display="none";
 	var loginid=document.getElementById("login");
 		loginid.style.display="block";
 };
