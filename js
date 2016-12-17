@@ -49,7 +49,7 @@ function createnewacc() {
 	var email = document.create_account.create_email.value;
 	var gender = document.create_account.select.options.selected.value;
 	var age = document.create_account.age.value;
-	account(username, password, email, gender, age);
+	create_checkinfo(username, password, email, gender, age);
 	};
 //switch create account pages
 function create_nextpage() {
