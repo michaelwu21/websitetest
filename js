@@ -47,7 +47,7 @@ function createnewacc() {
 	var username = document.create_account.create_user.value.toLowerCase();
 	var password = document.create_account.create_password.value;
 	var email = document.create_account.create_email.value;
-	var gender = document.create_account.select.options.selected.value;
+	var gender = document.create_account.create_gender.selected.value;
 	var age = document.create_account.age.value;
 	create_checkinfo(username, password, email, gender, age);
 	};
