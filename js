@@ -42,10 +42,10 @@ function account (username, password, email, gender, age) {
 };
 //create the acc using custom acc object creator
 function createnewacc() {
-	var username = document.createacc.acc_user.value.toLowerCase();
-	var password = document.createacc.acc_password.value;
-	var email = document.createacc.acc.email.value;
-	var gender = document.createacc.select.options.selected.value;
-	var age = document.createacc.age.value;
+	var username = document.create_account.create_user.value.toLowerCase();
+	var password = document.create_account.create_password.value;
+	var email = document.create_account.acc.create_email.value;
+	var gender = document.create_account.select.options.selected.value;
+	var age = document.create_account.age.value;
 	account(username, password, email, gender, age);
 	}
