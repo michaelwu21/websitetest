@@ -47,3 +47,7 @@ input[type=button]:hover {
 #create_secondpage {
 	display: none;
 }
+	form  { display: table;      }
+	h1     { display: table-row;  }
+	label { display: table-cell; }
+	input { display: table-cell; }
