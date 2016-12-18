@@ -1,53 +1,62 @@
 <html>
 <head>
     <title>Michaelwu21</title>
-	<script type="text/javascript" src="js"></script>
-	<link rel="stylesheet" href="css" />
+	<script type="text/javascript" src="js.js"></script>
+	<link rel="stylesheet" href="css.css" />
 	</head>    
-<body>
+<body onload="resetincorrect()">
 <br>
 	<center>
 	<div id="login">
 		<h1 class="sign">Sign In</h1>
 		<form name = "auth">
 			<label>Username:</label><br>
-			<input type="text" name = "email"><br>
+			<input type="text" name = "email" placeholder="Your Username" autofocus><br>
 			<label>Password:</label><br>
-			<input type="password" name = "password"><br>
+			<input type="password" name = "password" placeholder="Your Password"><br>
 			<input type="button" value = "Submit" onClick="checkuser()">
 		</form>
-		<p id="noacc" onClick="createacc()">No Account? Click Here</p>
-		<h3 id="wrongpass"></h3>
+		<span id="noacc" onClick="createacc()"><p>No Account? Click Here</p></span>
+		<h3 id="wrongpass">Sorry, but that password is incorrect, please try again</h3>
 	</div>  
 	<div id="createacc">
 		<form name = "create_account">
 			<div id="create_firstpage">
 				<h1 class="sign">Sign Up</h1>
 			<label id="acc_user">Create Account Username: </label>
-			<input type="text" name = "create_user"><br>
-			<label id="acc_password">Create Account Password: </label>
-			<input type="password" name = "create_password"><br>
+			<input type="text" name = "create_user" placeholder="Ex: John123">
+			<p id="create_incorrectusername">Please enter a valid username</p>
+			<br><label id="acc_password">Create Account Password: </label>
+			<input type="password" name = "create_password" placeholder="Longer than 5 Characters"><br>
+			<p id="create_incorrectpassword">Password needs more than 5 characters<br></p>
 			<label id="acc_email">Email Address:</label>
-			&emsp; &emsp; &emsp; &thinsp;
-			<input type="text" name = "create_email"><br>
+			&emsp; &emsp; &emsp; &nbsp;
+			<input type="text" name = "create_email" placeholder="Ex@example.com"><br>
+			<p id="create_incorrectemail">Please enter a valid email address<br></p>
 			<input type="button" value="Next Page" onClick="create_nextpage()">
 			</div>
 			<div id="create_secondpage">
 				<h1 class = "sign">Sign Up</h1>
 			<label>Gender: &nbsp; </label>
-			<select name = "create_gender"><br>
+			<span class="movedown">
+			<span class="styled-select blue semi-square">
+			<select name = "create_gender">
 				<option value="create_male">Male</option>
 				<option value="create_female">Female</option>
 				<option value="create_prefernottosay">Prefer Not To Say</option>
-			</select><br>
+			</select>
+			</span>
+			</span><br><br>
 			<label>Age: </label>
-			<input type="number" name="create_age"><br>
+			<input type="tel" name="create_age" placeholder="Your Current Age" size="4" maxlength="3"><br>
+			<p id="create_incorrectage">Please enter a valid age<br></p>
+			<p id="create_incorrect"></p>
 			<input type="button" value = "Create Account" onClick="createnewacc()"><br>
-			<input type="button" value = "Previous Page" onClick="create_back()">
+			<input type="button" id="redbutton" value = "Previous Page" onClick="create_back()">
 			</div>
 		</form>
-		<p id="noacc" onClick="alreadyhaveacc()">Have an account? Login</p>
-		
+		<span id="noacc" onClick="alreadyhaveacc()">Have an account? Login</span>
+		<br>
 	</div>	
 	</center>	
 </body>

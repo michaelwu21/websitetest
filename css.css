@@ -1,0 +1,123 @@
+#login {
+    background-color: #d9dbdd;
+    width: 55%;
+    padding: 8px;
+	padding-top: 3px;
+    display: inline-block;
+    border-radius: 12px;
+    }
+input[type=text], [type=password], [type=number], [type=tel] {
+    width: 40%;
+    margin: 15px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #ffffff;
+}
+.styled-select {
+   height: 29px;
+   overflow: hidden;
+   width: 240px;
+   text-align-last:center;
+}
+
+.styled-select select {
+   background: transparent;
+   border: none;
+   font-size: 14px;
+   height: 28px;
+   padding: 4px;
+   width: 240px;
+}
+.semi-square {
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+    margin: 15px 15px 0px 15px;
+}
+
+.blue    { background-color: #3b8ec2; }
+.blue select    { color: #fff; }
+
+option {
+	color:black;
+}
+
+input[type=button] {
+    width: 40%;
+    background-color: #0fdd20;
+    color: white; 
+    padding: 13px 20px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 5px;
+}
+input[type=button]:hover {
+    background-color: #0b8e25;
+    cursor: pointer;
+}
+#createacc {
+	background-color: #d9dbdd;
+	width: 55%;
+	display: none;
+	padding: 3px 8px 14px 8px;
+	border-radius: 12px;
+}
+#wrongpass {
+	display: none;
+}
+#noacc {
+	color:#0000EE;
+	font-size: 15px;
+}
+#noacc:hover {
+	color:#0B0080;
+	cursor: pointer;
+}
+#right {
+	float: right;
+}
+#create_secondpage {
+	display: none;
+}
+#sign {
+	font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+	padding: 4px;
+}
+#redborder {
+	border-style: solid;
+	border-color: #1b70f9;
+}
+#redbutton {
+	background-color: red;
+}
+#redbutton:hover {
+	background-color: #ad180d;
+}
+#create_incorrect {
+	color: red;
+	display: none;
+}
+#create_incorrectusername, #create_incorrectpassword, #create_incorrectemail, #create_incorrectage {
+	color:red;
+	display: none;
+}
+.hidden-submit {
+    border: 0 none;
+    height: 0;
+    width: 0;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+span {
+display: inline-block;
+}
+.movedown {
+	margin-bottom: -10px;
+}
