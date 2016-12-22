@@ -3,14 +3,29 @@
     <title>Michaelwu21</title>
 	<script type="text/javascript" src="js.js"></script>
 	<link rel="stylesheet" href="css.css" />
+	<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+	<script>
+	// Initialize Firebase
+	  var config = {
+		apiKey: "AIzaSyAVGPjwclhjP64PS-Pq9tHyz0JDNPauBfQ",
+		authDomain: "websitetest-4ec54.firebaseapp.com",
+		databaseURL: "https://websitetest-4ec54.firebaseio.com",
+		storageBucket: "websitetest-4ec54.appspot.com",
+		messagingSenderId: "390249574104"
+	  };
+	  firebase.initializeApp(config);
+	  var rootRef = firebase.database().ref();
+	</script>
 	</head>    
 <body onload="resetincorrect()">
+<div id="entire_login">
+
 <br>
-	<center>
+<center>
 	<div id="login">
 		<h1 class="sign">Sign In</h1>
 		<form name = "auth">
-			<label>Username:</label><br>
+			<label>Email:</label><br>
 			<input type="text" name = "email" placeholder="Your Username" autofocus><br>
 			<label>Password:</label><br>
 			<input type="password" name = "password" placeholder="Your Password"><br>
@@ -23,16 +38,17 @@
 		<form name = "create_account">
 			<div id="create_firstpage">
 				<h1 class="sign">Sign Up</h1>
+			<label id="acc_email">Email Address(Used to Sign In):</label>
+			<input type="text" name = "create_email" placeholder="Ex@example.com"><br>
+			<p id="create_incorrectemail">Please enter a valid email address<br></p>
 			<label id="acc_user">Create Account Username: </label>
+			&emsp; &emsp;
 			<input type="text" name = "create_user" placeholder="Ex: John123">
 			<p id="create_incorrectusername">Please enter a valid username</p>
 			<br><label id="acc_password">Create Account Password: </label>
+			&emsp; &emsp;
 			<input type="password" name = "create_password" placeholder="Longer than 5 Characters"><br>
 			<p id="create_incorrectpassword">Password needs more than 5 characters<br></p>
-			<label id="acc_email">Email Address:</label>
-			&emsp; &emsp; &emsp; &nbsp;
-			<input type="text" name = "create_email" placeholder="Ex@example.com"><br>
-			<p id="create_incorrectemail">Please enter a valid email address<br></p>
 			<input type="button" value="Next Page" onClick="create_nextpage()">
 			</div>
 			<div id="create_secondpage">
@@ -51,6 +67,7 @@
 			<input type="tel" name="create_age" placeholder="Your Current Age" size="4" maxlength="3"><br>
 			<p id="create_incorrectage">Please enter a valid age<br></p>
 			<p id="create_incorrect"></p>
+			<span id="createiscorrect_login">Account Successfully Created, Signing In...</span>
 			<input type="button" value = "Create Account" onClick="createnewacc()"><br>
 			<input type="button" id="redbutton" value = "Previous Page" onClick="create_back()">
 			</div>
@@ -59,5 +76,11 @@
 		<br>
 	</div>	
 	</center>	
+
+</div>
+
+<div id="entire_home">
+	<p>HI</o>
+</div>
 </body>
 </html>
