@@ -33,7 +33,7 @@ input[type=text], [type=password], [type=number], [type=tel] {
    -webkit-border-radius: 5px;
    -moz-border-radius: 5px;
    border-radius: 5px;
-    margin: 15px;
+    margin: 15px 15px -9px 15px;
 }
 
 .blue    { background-color: #3b8ec2; }
@@ -124,10 +124,13 @@ display: inline-block;
 #createiscorrect_login {
 	background-color: #83ef97;
 	color: black;
-	border-radius: 30%;
+	border-radius: 15px;
 	font-size: 24px;
 	display: none;
 }
 #entire_home {
+	display:none;
+}
+#loading {
 	display:none;
 }

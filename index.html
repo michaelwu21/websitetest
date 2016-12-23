@@ -2,25 +2,13 @@
 <head>
     <title>Michaelwu21</title>
 	<script type="text/javascript" src="js.js"></script>
+	
 	<link rel="stylesheet" href="css.css" />
 	<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
-	<script>
-	// Initialize Firebase
-	  var config = {
-		apiKey: "AIzaSyAVGPjwclhjP64PS-Pq9tHyz0JDNPauBfQ",
-		authDomain: "websitetest-4ec54.firebaseapp.com",
-		databaseURL: "https://websitetest-4ec54.firebaseio.com",
-		storageBucket: "websitetest-4ec54.appspot.com",
-		messagingSenderId: "390249574104"
-	  };
-	  firebase.initializeApp(config);
-	  var rootRef = firebase.database().ref();
-	</script>
 	</head>    
 <body onload="resetincorrect()">
-<div id="entire_login">
 
-<br>
+<div id="entire_login">
 <center>
 	<div id="login">
 		<h1 class="sign">Sign In</h1>
@@ -33,6 +21,7 @@
 		</form>
 		<span id="noacc" onClick="createacc()"><p>No Account? Click Here</p></span>
 		<h3 id="wrongpass">Sorry, but that password is incorrect, please try again</h3>
+		<h3 id="loading">Loading, Please Wait...</h3>
 	</div>  
 	<div id="createacc">
 		<form name = "create_account">
@@ -80,7 +69,9 @@
 </div>
 
 <div id="entire_home">
-	<p>HI</o>
+	<p>HI</p>
+	<button onclick="firebase_signout()">Sign Out</button>
 </div>
+<script src="app.js"></script>
 </body>
 </html>

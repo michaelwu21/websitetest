@@ -1,12 +1,11 @@
 function checkuser() {
-var wrongpass = document.getElementById("wrongpass");
+var loading = document.getElementById("loading");
+loading.style.display="block";
 var useremail = document.auth.email.value;
 var signinpassword = document.auth.password.value;
 	firebase.auth().signInWithEmailAndPassword(useremail, signinpassword).then(function(result) {
 	  console.log("Signed in!");
 	  console.debug(result);
-	  wrongpass.style.display="block";
-	  wrongpass.innerHTML = "Loading... Please Wait";
 	}, function(error) {
 	  wrongpass.style.display="block";
 	})
@@ -14,14 +13,15 @@ var signinpassword = document.auth.password.value;
 
 
 function resetincorrect () {
-var resetincorrect = document.getElementById("wrongpass");
-resetincorrect.style.display="none"
-resetincorrect.innerHTML = "Sorry, but that password is incorrect, please try again";
+	var resetincorrect = document.getElementById("wrongpass");
+	resetincorrect.style.display="none"
+	resetincorrect.innerHTML = "Sorry, but that password is incorrect, please try again";
 }
 
 function createacc() {
   if (open === false) {
-    		open = true;
+    	open = true;
+
 		document.getElementById("createacc").style.display="block";
 		var loginid=document.getElementById("login");
 		loginid.style.display="none";
@@ -131,6 +131,8 @@ function create_checkinfo(username, password, email, gender, age){
 		createiscorrect_login.style.display="block";
 		firebase.auth().createUserWithEmailAndPassword(email, password);
 		create_incorrect.style.display="none";
+		document.getElementById("createacc").style.display="none";
+		document.getElementById("login").style.display="block";
 		setTimeout(function(){ firebase.auth().signInWithEmailAndPassword(email, password).then(function(result) {
 			console.log("Signed in!");
   		    console.debug(result);
@@ -142,17 +144,7 @@ function create_checkinfo(username, password, email, gender, age){
 		create_incorrect.style.display="block";
 	}
 }
-//this next part does not work, not putting it in a function also gives me an error
-function authchanged () {
-//firebase user auth changed
-firebase.auth().onAuthStateChanged(function(firebaseUser) {
-	if (firebaseUser) {
-	document.getElementById("entire_login").style.display="none";
-	document.getElementById("entire_home").style.display="block";
-	console.log("Logged In!");
-	} else {
-	document.getElementById("entire_home").style.display="none";
-	document.getElementById("entire_login").style.display="block";
-	}
-});
+
+function firebase_signout() {
+	firebase.auth().signOut();
 }
