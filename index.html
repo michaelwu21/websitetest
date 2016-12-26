@@ -1,43 +1,203 @@
 <html>
 <head>
-    <title>Michaelwu21</title>
+    <title>Xfinity Cube Store</title>
+<style>
+ul {
+    list-style-type: none;
+    margin-left: 8px;
+    padding: 0;
+    overflow: hidden;
+    background-color: #9adcf4;
+    top: 10px;
+    width: 98%;
+    border: none;
+    border-radius: 5px;
+}
+
+
+li a, .dropbtn {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 16px 30px;
+    text-decoration: none;
+    
+}
+
+li a:hover {
+    background-color: #818387!important;
+    cursor: pointer!important;
+    color: white!important;
+    transition: background-color 0.3s, color 0.5s;
+
+}
+
+.dropdown {
+    display: inline-block;
+}
+.dropdown-content {
+}
+.dropdown-content {
+    height: 0px;
+	position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	max-height: 0px;
+	transition: max-height 0.5s ease-in;
+}
+
+.dropdown-content a {
+	color: #f9f9f9;
+    padding: 12px 14px;
+    text-decoration: none;
+    text-align: left;
+	transition: color 0.7s ease-in;
+	display: none;
+}
+
+.dropdown-content a:hover {
+	background-color: #ccced1!important;
+	color: black!important;
+}
+
+.dropdown:hover .dropdown-content {
+    height: auto;
+	max-height: 150px;
+	cursor: pointer;
+   	color:black!important;
+	display:block;
+}
+.dropdown:hover #profile {
+	display: block;
+	color: black;
+	-webkit-animation: fadein 1.2s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 1.2s; /* Firefox < 16 */
+        -ms-animation: fadein 1.2s; /* Internet Explorer */
+         -o-animation: fadein 1.2s; /* Opera < 12.1 */
+            animation: fadein 1.2s;
+}
+.dropdown:hover #settings {
+	display: block;
+	color: black;
+	 -webkit-animation: fadein 1.5s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 1.5s; /* Firefox < 16 */
+        -ms-animation: fadein 1.5s; /* Internet Explorer */
+         -o-animation: fadein 1.5s; /* Opera < 12.1 */
+            animation: fadein 1.5s;
+}
+.dropdown:hover #logout {
+	display: block;
+	color: black;
+	 -webkit-animation: fadein 1.8s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 1.8s; /* Firefox < 16 */
+        -ms-animation: fadein 1.8s; /* Internet Explorer */
+         -o-animation: fadein 1.8s; /* Opera < 12.1 */
+         animation: fadein 1.8s;
+}
+#nav_home, #nav_newarrivals, #nav_about {
+	float: left;
+}
+#nav_cart, #nav_account, #nav_login, #nav_createacc {
+	float: right;
+}
+.dropdown-content {
+    right: 2%;
+    left: auto;
+}
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+</style>
 	<script type="text/javascript" src="js.js"></script>
-	
+	<link href='http://fonts.googleapis.com/css?family=Fugaz One' rel='stylesheet' />
+	<link href='http://fonts.googleapis.com/css?family=Chewy' rel="stylesheet" />
 	<link rel="stylesheet" href="css.css" />
+	<link rel="stylesheet" href="home.css" />
+	<script>
+	var useremail = "";
+	</script>
 	<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
 	</head>    
 <body onload="resetincorrect()">
+<div id="nav_bar">
+<ul>
+  <li><a onClick="nav_home()" id="nav_home">Home</a></li>
+  <li><a onClick="nav_newarrivals()" id="nav_newarrivals">New Arrivals</a></li>
+  <li><a onClick="nav_about()" id="nav_about">About</a></li>
+  <li class="dropdown" id="nav_account">
+    <a class="dropbtn">Account &#9660;</a>
+		<div class="dropdown-content">
+		  <a id="profile">Profile</a>
+		  <a id="settings">Settings</a>
+		  <a onClick="firebase_signout()" id="logout">Log Out</a>
+		</div>
+  </li>
+  <li><a onClick="nav_login()" id="nav_login">Sign In</a></li>
+  <li><a onClick="nav_createacc()" id="nav_createacc">Sign Up</a></li>
+  <li><a onClick="nav_cart()" id="nav_cart">Cart(0)</a></li>
+</ul>
 
+
+</div>
 <div id="entire_login">
+<br><br>
 <center>
 	<div id="login">
 		<h1 class="sign">Sign In</h1>
-		<form name = "auth">
+		<form name = "auth" onsubmit="checkuser();return false;" >
 			<label>Email:</label><br>
-			<input type="text" name = "email" placeholder="Your Username" autofocus><br>
+			<input type="text" name = "email" placeholder="Your Email" /><br>
 			<label>Password:</label><br>
-			<input type="password" name = "password" placeholder="Your Password"><br>
-			<input type="button" value = "Submit" onClick="checkuser()">
+			<input type="password" name = "password" placeholder="Your Password" /><br>
+			<input type="submit" value = "Submit" />
 		</form>
 		<span id="noacc" onClick="createacc()"><p>No Account? Click Here</p></span>
-		<h3 id="wrongpass">Sorry, but that password is incorrect, please try again</h3>
+		<h3 id="wrongpass" style="color: red">Invalid Username or Password</h3>
 		<h3 id="loading">Loading, Please Wait...</h3>
 	</div>  
 	<div id="createacc">
-		<form name = "create_account">
+		<form name = "create_account" onsubmit="createnewacc();return false;" >
 			<div id="create_firstpage">
 				<h1 class="sign">Sign Up</h1>
 			<label id="acc_email">Email Address(Used to Sign In):</label>
-			<input type="text" name = "create_email" placeholder="Ex@example.com"><br>
+			&nbsp;
+			<input type="text" name="create_email" placeholder="Ex@example.com" />
 			<p id="create_incorrectemail">Please enter a valid email address<br></p>
-			<label id="acc_user">Create Account Username: </label>
-			&emsp; &emsp;
-			<input type="text" name = "create_user" placeholder="Ex: John123">
-			<p id="create_incorrectusername">Please enter a valid username</p>
+			<p id="emailalreadyused">That Email Address is already registered</p>
 			<br><label id="acc_password">Create Account Password: </label>
 			&emsp; &emsp;
-			<input type="password" name = "create_password" placeholder="Longer than 5 Characters"><br>
+			<input type="password" name = "create_password" placeholder="Longer than 5 Characters" /><br>
 			<p id="create_incorrectpassword">Password needs more than 5 characters<br></p>
+			<label id="acc_user">Create Account Username: </label>
+			&emsp; &nbsp; &nbsp;
+			<input type="text" name = "create_user" placeholder="Ex: John123" />
+			<p id="create_incorrectusername">Please enter a valid username<br></p>
 			<input type="button" value="Next Page" onClick="create_nextpage()">
 			</div>
 			<div id="create_secondpage">
@@ -52,13 +212,14 @@
 			</select>
 			</span>
 			</span><br><br>
-			<label>Age: </label>
-			<input type="tel" name="create_age" placeholder="Your Current Age" size="4" maxlength="3"><br>
+			<label>(Optional)Age: </label>
+			<input type="tel" name="create_age" placeholder="Your Current Age" size="4" maxlength="3" /><br>
 			<p id="create_incorrectage">Please enter a valid age<br></p>
 			<p id="create_incorrect"></p>
-			<span id="createiscorrect_login">Account Successfully Created, Signing In...</span>
-			<input type="button" value = "Create Account" onClick="createnewacc()"><br>
-			<input type="button" id="redbutton" value = "Previous Page" onClick="create_back()">
+			<span id="create_creatingacc">Creating Account...</span>
+			<span id="createiscorrect_login">Account Successfully Created: Signing In...</span>
+			<input type="submit" value = "Create Account" /><br>
+			<input type="button" id="redbutton" value = "Previous Page" onClick="create_back()" />
 			</div>
 		</form>
 		<span id="noacc" onClick="alreadyhaveacc()">Have an account? Login</span>
@@ -68,10 +229,27 @@
 
 </div>
 
-<div id="entire_home">
-	<p>HI</p>
-	<button onclick="firebase_signout()">Sign Out</button>
+<div id="entire_modal">
+<h3>You have been logged out</h3>
 </div>
+
+<div id="entire_home">
+	<h2 font-family="Chewy" id="welcome">Hi, Welcome to Xfinity Cube Store!</h2>
+</div>
+
+<div id="entire_newarrivals">
+</div>
+
+<div id="entire_about">
+</div>
+
+<div id="entire_cart">
+
+</div>
+
+<div id="entire_account">
+</div>
+
 <script src="app.js"></script>
 </body>
 </html>

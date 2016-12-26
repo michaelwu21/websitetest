@@ -10,17 +10,25 @@
 	  firebase.initializeApp(config);
 	  var rootRef = firebase.database().ref();
 //firebase user auth changed
+var loggedin = false;
 firebase.auth().onAuthStateChanged(function(user) {
 	if (user) {
-		document.getElementById("entire_login").style.display="none";
-		document.getElementById("entire_home").style.display="block";
+		var useremail = document.auth.email.value;
+		sayhi();
+		loggedin = true;
+		nav_home();
 		console.log("Logged In!");
 		console.debug(user);
-		document.getElementById("loading").style.display="none";
+		loading.style.display="none";
+		document.getElementById("nav_login").style.display="none";
+		document.getElementById("nav_createacc").style.display="none";
+		document.getElementById("nav_account").style.display="block";
 	} else {
-		document.getElementById("entire_home").style.display="none";
-		document.getElementById("entire_login").style.display="block";
-		document.getElementById("loading").style.display="none";
+		loggedin = false;
+		nav_home();
+		document.getElementById("nav_account").style.display="none";
+		document.getElementById("nav_login").style.display="block";
+		document.getElementById("nav_createacc").style.display="block";
 	}
 });
 }());

@@ -14,6 +14,7 @@ input[type=text], [type=password], [type=number], [type=tel] {
     border: none;
     background-color: #ffffff;
 }
+
 .styled-select {
    height: 29px;
    overflow: hidden;
@@ -43,7 +44,7 @@ option {
 	color:black;
 }
 
-input[type=button] {
+input[type=button], [type=submit] {
     width: 40%;
     background-color: #0fdd20;
     color: white; 
@@ -55,6 +56,22 @@ input[type=button] {
 input[type=button]:hover {
     background-color: #0b8e25;
     cursor: pointer;
+}
+input[type=submit]:hover {
+	background-color: #0b8e25;
+    cursor: pointer;
+}
+input[type=text]:focus {
+    background-color:#f2f4f7;
+	outline-color: #85fc99;
+}
+input[type=password]:focus {
+    background-color:#f2f4f7;
+	outline-color: #85fc99;
+}
+input[type=tel]:focus {
+    background-color:#f2f4f7;
+	outline-color: #85fc99;
 }
 #createacc {
 	background-color: #d9dbdd;
@@ -100,20 +117,16 @@ input[type=button]:hover {
 	background-color: #ad180d;
 }
 #create_incorrect {
-	color: red;
-	display: none;
-}
-#create_incorrectusername, #create_incorrectpassword, #create_incorrectemail, #create_incorrectage {
 	color:red;
 	display: none;
 }
-.hidden-submit {
-    border: 0 none;
-    height: 0;
-    width: 0;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
+#create_incorrectusername, #create_incorrectpassword, #create_incorrectemail, #create_incorrectage, #emailalreadyused {
+	color:red;
+	display: none;
+	margin-top: -8px;
+}
+#create_incorrectpassword, #create_incorrectusername {
+	margin-bottom: 30px;
 }
 span {
 display: inline-block;
@@ -129,8 +142,42 @@ display: inline-block;
 	display: none;
 }
 #entire_home {
-	display:none;
+	display: block;
+}
+#entire_login {
+	display: none;
 }
 #loading {
 	display:none;
+}
+#create_creatingacc {
+	display:none;
+	font-size: 24px;
+	color:black;
+}
+/* signed out */
+#entire_modal {
+	display: none;
+	top: 0;
+	left: 0;
+}
+#nav_login {
+	display: block;
+	background-color: #0fdd20; 
+}
+#nav_account {
+	display: none;
+}
+#nav_login:hover {
+	background-color: #0b8e25!important;
+	cursor: pointer;
+	color: black!important;
+}
+#nav_createacc {
+	background-color: #dee0e2!important;
+}
+#nav_createacc:hover {
+	background-color:#b6b7ba!important;
+	cursor: pointer;
+	color: black!important;
 }

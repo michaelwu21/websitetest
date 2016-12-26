@@ -1,50 +1,80 @@
-function checkuser() {
-var loading = document.getElementById("loading");
-loading.style.display="block";
-var useremail = document.auth.email.value;
-var signinpassword = document.auth.password.value;
+function checkuser () {
+	wrongpass.style.display="none";
+	var loading = document.getElementById("loading");
+	loading.style.display="block";
+	useremail = document.auth.email.value;
+	var signinpassword = document.auth.password.value;
+
 	firebase.auth().signInWithEmailAndPassword(useremail, signinpassword).then(function(result) {
 	  console.log("Signed in!");
 	  console.debug(result);
 	}, function(error) {
 	  wrongpass.style.display="block";
+	  loading.style.display="none";
 	})
   }
+function sayhi () {
+	if (useremail != "" || null || undefined) {
+	var atposition = useremail.indexOf("@");
+	var usernamefromemail = useremail.slice(0, atposition);
+	document.getElementById("welcome").innerHTML = "Hi " + usernamefromemail + ", Welcome to Xfinity Cube Store!";
+	} else {
+	return false;
+	}
+}
+function checkuser_enter () {
+	if (characterCode == 13) {
+		return;
+		wrongpass.style.display="none";
+		var loading = document.getElementById("loading");
+		loading.style.display="block";
+		var useremail = document.auth.email.value;
+		var signinpassword = document.auth.password.value;
 
+		firebase.auth().signInWithEmailAndPassword(useremail, signinpassword).then(function(result) {
+		  console.log("Signed in!");
+		  console.debug(result);
+		}, function(error) {
+		  wrongpass.style.display="block";
+		  loading.style.display="none";
+		})
+	} else {
+		return;
+	}
+}
 
 function resetincorrect () {
 	var resetincorrect = document.getElementById("wrongpass");
-	resetincorrect.style.display="none"
-	resetincorrect.innerHTML = "Sorry, but that password is incorrect, please try again";
+	wrongpass.style.display="none"
+	nav_home();
+	var useremail = "";
 }
 
 function createacc() {
-  if (open === false) {
-    	open = true;
-
+		create_firstpage.display="block";
+		create_secondpage.display="none";
 		document.getElementById("createacc").style.display="block";
+		
 		var loginid=document.getElementById("login");
 		loginid.style.display="none";
-		document.getElementById("createiscorrect_login.style").style.display="none";
+		document.getElementById("createiscorrect_login").style.display="none";
 		document.getElementById("create_incorrectusername").style.display="none";
 		document.getElementById("create_incorrectpassword").style.display="none";
 		document.getElementById("create_incorrectemail").style.display="none";
 		document.getElementById("create_incorrectage").style.display="none";
-      }else{
-		var open=true;
-		document.getElementById("createacc").style.display="block";
-		var loginid=document.getElementById("login");
-		loginid.style.display="none";
-}
+		
+		document.create_account.create_email.focus();
 };
 
 function alreadyhaveacc() {
-	open=false;
+/*	open=false;
 	document.getElementById("createacc").style.display="none";
 	document.getElementById("create_firstpage").style.display="block";
 	document.getElementById("create_secondpage").style.display="none";
 	var loginid=document.getElementById("login");
 		loginid.style.display="block";
+*/
+nav_login();
 };
 
 //acc custom object creator
@@ -116,10 +146,15 @@ function create_checkinfo(username, password, email, gender, age){
 		create_incorrectamount+= 1;
 		document.getElementById("create_incorrectemail").style.display="block";
 	};
-
-	if (isNaN(age) === false){
-		var agecheck = true;
-		document.getElementById("create_incorrectage").style.display="none"
+	if(age != null){
+		if (isNaN(age) === false){
+			var agecheck = true;
+			document.getElementById("create_incorrectage").style.display="none"
+		} else {
+			var agecheck = false;
+			create_incorrectamount+= 1;
+			document.getElementById("create_incorrectage").style.display="block";
+		};
 	} else {
 		var agecheck = false;
 		create_incorrectamount+= 1;
@@ -128,17 +163,29 @@ function create_checkinfo(username, password, email, gender, age){
 	
 	//firebase create account
 	if (usernamecheck && passwordcheck && emailcheck && agecheck) {
-		createiscorrect_login.style.display="block";
+		create_creatingacc.display="block";
 		firebase.auth().createUserWithEmailAndPassword(email, password);
-		create_incorrect.style.display="none";
-		document.getElementById("createacc").style.display="none";
-		document.getElementById("login").style.display="block";
-		setTimeout(function(){ firebase.auth().signInWithEmailAndPassword(email, password).then(function(result) {
+		firebase.auth().signInWithEmailAndPassword(email, password).then(function(result) {
+			create_creatingacc.display="none";
+			createiscorrect_login.style.display="block";
+			create_incorrectamount = 0;
+			create_incorrect.style.display="none";
+			document.getElementById("createacc").style.display="none";
+			document.getElementById("login").style.display="block";
+			emailalreadyused.style.display="none";
+			create_incorrect.style.display="none";
+			create_firstpage.style.display="block";
+			create_secondpage.style.display="none";
 			console.log("Signed in!");
   		    console.debug(result);
 	}, function(error) {
+		emailalreadyused.style.display="block";
+		createiscorrect_login.style.display="none";
 		console.debug(error);
-	}) }, 3000);
+		create_incorrect.style.display="block";
+		create_incorrectamount = 1;
+		create_incorrect.innerHTML="You have " + create_incorrectamount + " incorrect/blank fields";
+	})
 	} else {
 		create_incorrect.innerHTML="You have " + create_incorrectamount + " incorrect/blank fields";
 		create_incorrect.style.display="block";
@@ -147,4 +194,71 @@ function create_checkinfo(username, password, email, gender, age){
 
 function firebase_signout() {
 	firebase.auth().signOut();
+}
+
+
+//navigation functions
+function nav_clearselected () {
+	document.getElementById("nav_home").style.backgroundColor="#9adcf4";
+	document.getElementById("nav_newarrivals").style.backgroundColor="#9adcf4";
+	document.getElementById("nav_about").style.backgroundColor="#9adcf4";
+	document.getElementById("nav_cart").style.backgroundColor="#9adcf4";
+}
+function nav_login () {
+	document.getElementById("createacc").style.display="none";
+	document.getElementById("create_firstpage").style.display="block";
+	document.getElementById("create_secondpage").style.display="none";
+	document.getElementById("login").style.display="block";
+	entire_home.style.display="none";
+	entire_cart.style.display="none";
+	entire_newarrivals.display="none";
+	entire_account.style.display="none";
+	entire_about.style.display="none";
+	entire_login.style.display="block";
+	nav_clearselected();
+	document.auth.email.focus();
+}
+function nav_createacc() {
+	nav_login();
+	createacc();
+}
+function nav_home () {
+	entire_cart.style.display="none";
+	entire_newarrivals.display="none";
+	entire_account.style.display="none";
+	entire_about.style.display="none";
+	entire_login.style.display="none";
+	entire_home.style.display="block";
+	nav_clearselected();
+	document.getElementById("nav_home").style.backgroundColor="#7aabf9";
+}
+function nav_newarrivals () {
+	entire_cart.style.display="none";
+	entire_account.style.display="none";
+	entire_about.style.display="none";
+	entire_login.style.display="none";
+	entire_home.style.display="none";
+	entire_newarrivals.display="block";
+	nav_clearselected();
+	document.getElementById("nav_newarrivals").style.backgroundColor="#7aabf9";
+}
+function nav_about () {
+	entire_cart.style.display="none";
+	entire_account.style.display="none";
+	entire_login.style.display="none";
+	entire_home.style.display="none";
+	entire_newarrivals.display="none";
+	entire_about.style.display="block";
+	nav_clearselected();
+	document.getElementById("nav_about").style.backgroundColor="#7aabf9";
+}
+function nav_cart () {
+	entire_newarrivals.display="none";
+	entire_account.style.display="none";
+	entire_about.style.display="none";
+	entire_login.style.display="none";
+	entire_home.style.display="none";
+	entire_cart.style.display="block";
+	nav_clearselected();
+	document.getElementById("nav_cart").style.backgroundColor="#7aabf9";
 }
