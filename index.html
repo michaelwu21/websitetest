@@ -140,9 +140,9 @@ li a:hover {
 	<link rel="stylesheet" href="css.css" />
 	<link rel="stylesheet" href="home.css" />
 	<script>
-	var useremail = "";
+	var current_email = "";
 	</script>
-	<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
 	</head>    
 <body onload="resetincorrect()">
 <div id="nav_bar">
@@ -230,11 +230,24 @@ li a:hover {
 </div>
 
 <div id="entire_modal">
-<h3>You have been logged out</h3>
+	<div class="modal_content">
+		<span class="close" onClick="modal_close();">&times;</span>
+		<script>
+		window.onclick = function(event) {
+			if (event.target == entire_modal) {
+				modal_close();
+			}
+		}
+		</script>
+		<div class="modal_body">
+			<h3 id="modal_loggedout">You have been logged out</h3>
+			<h3 id="modal_loggedin">Successfully logged in</h3>
+		</div>
+	</div>
 </div>
 
 <div id="entire_home">
-	<h2 font-family="Chewy" id="welcome">Hi, Welcome to Xfinity Cube Store!</h2>
+	<nobr><h2><span id="welcome" class="capitalize"></span>, Welcome to Xfinity Cube Store!</h2></nobr>
 </div>
 
 <div id="entire_newarrivals">

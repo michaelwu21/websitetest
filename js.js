@@ -13,13 +13,40 @@ function checkuser () {
 	  loading.style.display="none";
 	})
   }
+  function resetincorrect () {
+	var resetincorrect = document.getElementById("wrongpass");
+	wrongpass.style.display="none"
+	nav_home();
+}
 function sayhi () {
-	if (useremail != "" || null || undefined) {
-	var atposition = useremail.indexOf("@");
-	var usernamefromemail = useremail.slice(0, atposition);
-	document.getElementById("welcome").innerHTML = "Hi " + usernamefromemail + ", Welcome to Xfinity Cube Store!";
+	if (current_email != "" || null || undefined) {
+	var atposition = current_email.indexOf("@");
+	var usernamefromemail = current_email.slice(0, atposition);
+	//find if it's morning or afternoon
+	var current_date = new Date();
+	var current_hour = current_date.getHours();
+	if (current_hour > 11 && current_hour < 17) {
+		var ma = "Good Afternoon ";
+	} else if (current_hour >= 17) {
+		var ma = "Good Evening ";
 	} else {
-	return false;
+		var ma = "Good Morning ";
+	};
+	
+	document.getElementById("welcome").innerHTML = ma + usernamefromemail;
+	} else {
+	//find if it's morning or afternnon
+	var current_date = new Date();
+	var current_hour = current_date.getHours();
+	if (current_hour > 11 && current_hour < 17) {
+		var ma = "Good Afternoon";
+	} else if (current_hour >= 17) {
+		var ma = "Good Evening";
+	} else {
+		var ma = "Good Morning";
+	};
+	
+	document.getElementById("welcome").innerHTML = ma
 	}
 }
 function checkuser_enter () {
@@ -43,12 +70,7 @@ function checkuser_enter () {
 	}
 }
 
-function resetincorrect () {
-	var resetincorrect = document.getElementById("wrongpass");
-	wrongpass.style.display="none"
-	nav_home();
-	var useremail = "";
-}
+
 
 function createacc() {
 		create_firstpage.display="block";
@@ -194,6 +216,7 @@ function create_checkinfo(username, password, email, gender, age){
 
 function firebase_signout() {
 	firebase.auth().signOut();
+	modal_loggedout();
 }
 
 
@@ -261,4 +284,27 @@ function nav_cart () {
 	entire_cart.style.display="block";
 	nav_clearselected();
 	document.getElementById("nav_cart").style.backgroundColor="#7aabf9";
+}
+
+//modal functions
+
+function modal_loggedin () {
+	document.getElementById("modal_loggedout").style.display="none";
+	//document.getElementById("entire_modal").style.visibility="visible";
+	document.getElementById("modal_loggedin").style.display="block";
+	document.getElementById("entire_modal").style.display="block";
+}
+function modal_loggedout () {
+	document.getElementById("modal_loggedin").style.display="none";
+	document.getElementById("modal_loggedout").style.display="block";
+	//document.getElementsByClassName("hidden").style.visibility="visible";
+	document.getElementById("entire_modal").style.display="block";
+}
+function modal_close () {
+	document.getElementById("entire_modal").className += ' hidden';
+	setTimeout(function(){ 
+	document.getElementById("entire_modal").style.display="none";
+	document.getElementById("entire_modal").className = document.getElementById("entire_modal").className.replace( /(?:^|\s)hidden(?!\S)/g , '' );
+	document.getElementById("entire_modal").className += ' visible';
+	}, 300);
 }
