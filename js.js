@@ -6,8 +6,7 @@ function checkuser () {
 	var signinpassword = document.auth.password.value;
 
 	firebase.auth().signInWithEmailAndPassword(useremail, signinpassword).then(function(result) {
-	  console.log("Signed in!");
-	  console.debug(result);
+		
 	}, function(error) {
 	  wrongpass.style.display="block";
 	  loading.style.display="none";
@@ -19,7 +18,11 @@ function checkuser () {
 	nav_home();
 }
 function sayhi () {
+	var welcome = document.getElementById("welcome");
+	var welcomeelem = document.getElementById("welcome2");
+	welcomeelem.style.display="none";
 	if (current_email != "" || null || undefined) {
+	console.log("hi!");
 	var atposition = current_email.indexOf("@");
 	var usernamefromemail = current_email.slice(0, atposition);
 	//find if it's morning or afternoon
@@ -33,7 +36,8 @@ function sayhi () {
 		var ma = "Good Morning ";
 	};
 	
-	document.getElementById("welcome").innerHTML = ma + usernamefromemail;
+	welcome.innerHTML = ma + usernamefromemail;
+	welcomeelem.style.display="initial";
 	} else {
 	//find if it's morning or afternnon
 	var current_date = new Date();
@@ -46,10 +50,11 @@ function sayhi () {
 		var ma = "Good Morning";
 	};
 	
-	document.getElementById("welcome").innerHTML = ma
+	welcome.innerHTML = ma;
+	welcomeelem.style.display="initial";
 	}
 }
-function checkuser_enter () {
+/*function checkuser_enter () {
 	if (characterCode == 13) {
 		return;
 		wrongpass.style.display="none";
@@ -68,7 +73,7 @@ function checkuser_enter () {
 	} else {
 		return;
 	}
-}
+}*/
 
 
 

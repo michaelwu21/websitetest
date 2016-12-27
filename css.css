@@ -221,7 +221,7 @@ display: inline-block;
 .hidden {
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0s 0.3s, opacity 0.3s linear;
+  transition: visibility 0s 0.2s, opacity 0.2s linear;
 }
 .visible {
   visibility: visible;

@@ -15,7 +15,6 @@ firebase.auth().onAuthStateChanged(function(user) {
 		/*var current_user = firebase.auth().currentUser;
 		var current_email = current_user.email;*/
 		current_email = user.email;
-		sayhi();
 		loggedin = true;
 		nav_home();
 		console.log("Logged In Successfully");
@@ -24,10 +23,12 @@ firebase.auth().onAuthStateChanged(function(user) {
 		document.getElementById("nav_login").style.display="none";
 		document.getElementById("nav_createacc").style.display="none";
 		document.getElementById("nav_account").style.display="block";
+		sayhi();
 		modal_loggedin();
 	} else {
 		loggedin = false;
 		nav_home();
+		current_email = "";
 		sayhi();
 		document.getElementById("nav_account").style.display="none";
 		document.getElementById("nav_login").style.display="block";
