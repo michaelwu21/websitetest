@@ -1,3 +1,9 @@
+body {
+	margin-bottom: 0px!important;
+	margin-top: 0px!important;
+	margin-right: 0px!important;
+	overflow-y: hidden;
+}
 #login {
     background-color: #d9dbdd;
     width: 55%;
@@ -218,20 +224,17 @@ display: inline-block;
     background-color: #5cb85c;
     color: white;
 }
-.hidden {
+.hiddentrans {
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s 0.2s, opacity 0.2s linear;
 }
-.visible {
+.visibletrans {
   visibility: visible;
 }
 #nav_login {
 	display: block;
 	background-color: #0fdd20; 
-}
-#nav_account {
-	display: none;
 }
 #nav_login:hover {
 	background-color: #0b8e25!important;

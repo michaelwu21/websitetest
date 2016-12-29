@@ -18,11 +18,11 @@ function checkuser () {
 	nav_home();
 }
 function sayhi () {
-	var welcome = document.getElementById("welcome");
-	var welcomeelem = document.getElementById("welcome2");
-	welcomeelem.style.display="none";
+	var iframe = document.getElementById('iframehome');
+	var innerDoc = (iframe.contentDocument) ? iframe.contentDocument : iframe.contentWindow.document;
+	var welcomeelem = innerDoc.getElementById("welcome");
+	iframe.style.display="none";
 	if (current_email != "" || null || undefined) {
-	console.log("hi!");
 	var atposition = current_email.indexOf("@");
 	var usernamefromemail = current_email.slice(0, atposition);
 	//find if it's morning or afternoon
@@ -36,8 +36,9 @@ function sayhi () {
 		var ma = "Good Morning ";
 	};
 	
-	welcome.innerHTML = ma + usernamefromemail;
-	welcomeelem.style.display="initial";
+	welcomeelem.innerHTML = ma + usernamefromemail;
+	iframe.style.display="initial";
+	console.log(ma + usernamefromemail);
 	} else {
 	//find if it's morning or afternnon
 	var current_date = new Date();
@@ -50,8 +51,8 @@ function sayhi () {
 		var ma = "Good Morning";
 	};
 	
-	welcome.innerHTML = ma;
-	welcomeelem.style.display="initial";
+	welcomeelem.innerHTML = ma;
+	iframe.style.display="initial";
 	}
 }
 /*function checkuser_enter () {
@@ -104,14 +105,6 @@ function alreadyhaveacc() {
 nav_login();
 };
 
-//acc custom object creator
-function account (username, password, email, gender, age) {
-	this.username = username;
-	this.password = password;
-	this.email = email;
-	this.gender = gender;
-	this.age = age;
-};
 //create the acc using custom acc object creator
 function createnewacc() {
 	var username = document.create_account.create_user.value.toLowerCase();
@@ -205,6 +198,7 @@ function create_checkinfo(username, password, email, gender, age){
 			create_secondpage.style.display="none";
 			console.log("Signed in!");
   		    console.debug(result);
+			
 	}, function(error) {
 		emailalreadyused.style.display="block";
 		createiscorrect_login.style.display="none";
@@ -256,7 +250,7 @@ function nav_home () {
 	entire_account.style.display="none";
 	entire_about.style.display="none";
 	entire_login.style.display="none";
-	entire_home.style.display="block";
+	entire_home.style.display="initial";
 	nav_clearselected();
 	document.getElementById("nav_home").style.backgroundColor="#7aabf9";
 }
@@ -295,21 +289,19 @@ function nav_cart () {
 
 function modal_loggedin () {
 	document.getElementById("modal_loggedout").style.display="none";
-	//document.getElementById("entire_modal").style.visibility="visible";
 	document.getElementById("modal_loggedin").style.display="block";
 	document.getElementById("entire_modal").style.display="block";
 }
 function modal_loggedout () {
 	document.getElementById("modal_loggedin").style.display="none";
 	document.getElementById("modal_loggedout").style.display="block";
-	//document.getElementsByClassName("hidden").style.visibility="visible";
 	document.getElementById("entire_modal").style.display="block";
 }
 function modal_close () {
-	document.getElementById("entire_modal").className += ' hidden';
+	document.getElementById("entire_modal").className += ' hiddentrans';
 	setTimeout(function(){ 
 	document.getElementById("entire_modal").style.display="none";
-	document.getElementById("entire_modal").className = document.getElementById("entire_modal").className.replace( /(?:^|\s)hidden(?!\S)/g , '' );
-	document.getElementById("entire_modal").className += ' visible';
+	document.getElementById("entire_modal").className = document.getElementById("entire_modal").className.replace( /(?:^|\s)hiddentrans(?!\S)/g , '' );
+	document.getElementById("entire_modal").className += ' visibletrans';
 	}, 300);
 }
