@@ -18,42 +18,90 @@ function checkuser () {
 	nav_home();
 }
 function sayhi () {
-	var iframe = document.getElementById('iframehome');
-	var innerDoc = (iframe.contentDocument) ? iframe.contentDocument : iframe.contentWindow.document;
-	var welcomeelem = innerDoc.getElementById("welcome");
-	iframe.style.display="none";
+	//wait longer if the user is not logged in to prevent errors on slow computers
 	if (current_email != "" || null || undefined) {
-	var atposition = current_email.indexOf("@");
-	var usernamefromemail = current_email.slice(0, atposition);
-	//find if it's morning or afternoon
-	var current_date = new Date();
-	var current_hour = current_date.getHours();
-	if (current_hour > 11 && current_hour < 17) {
-		var ma = "Good Afternoon ";
-	} else if (current_hour >= 17) {
-		var ma = "Good Evening ";
-	} else {
-		var ma = "Good Morning ";
+		var timetowait = 60;
+	}else{
+		var timetowait = 250;
 	};
+	if(firsttime === true){
+	setTimeout(function() {
+		firsttime = false;
+		var iframehome = document.getElementById('iframehome');
+		var innerDoc = iframehome.contentDocument || iframehome.contentWindow.document;
+		var welcomeelem = innerDoc.getElementById("welcome");
+		iframehome.style.display="none";
+		if (current_email != "" || null || undefined) {
+		var atposition = current_email.indexOf("@");
+		var usernamefromemail = current_email.slice(0, atposition);
+		//find if it's morning or afternoon
+		var current_date = new Date();
+		var current_hour = current_date.getHours();
+		if (current_hour > 11 && current_hour < 17) {
+			var ma = "Good Afternoon ";
+		} else if (current_hour >= 17) {
+			var ma = "Good Evening ";
+		} else {
+			var ma = "Good Morning ";
+		};
+		
+		welcomeelem.innerHTML = ma + usernamefromemail;
+		iframehome.style.display="block";
+		} else {
+		//find if it's morning or afternnon
+		var current_date = new Date();
+		var current_hour = current_date.getHours();
+		if (current_hour > 11 && current_hour < 17) {
+			var ma = "Good Afternoon";
+		} else if (current_hour >= 17) {
+			var ma = "Good Evening";
+		} else {
+			var ma = "Good Morning";
+		};
+		
+		welcomeelem.innerHTML = ma;
+		iframehome.style.display="block";
+		}
 	
-	welcomeelem.innerHTML = ma + usernamefromemail;
-	iframe.style.display="initial";
-	console.log(ma + usernamefromemail);
-	} else {
-	//find if it's morning or afternnon
-	var current_date = new Date();
-	var current_hour = current_date.getHours();
-	if (current_hour > 11 && current_hour < 17) {
-		var ma = "Good Afternoon";
-	} else if (current_hour >= 17) {
-		var ma = "Good Evening";
-	} else {
-		var ma = "Good Morning";
-	};
-	
-	welcomeelem.innerHTML = ma;
-	iframe.style.display="initial";
+	}, timetowait);
+	}else{
+		var iframehome = document.getElementById('iframehome');
+		var innerDoc = iframehome.contentDocument || iframehome.contentWindow.document;
+		var welcomeelem = innerDoc.getElementById("welcome");
+		iframehome.style.display="none";
+		if (current_email != "" || null || undefined) {
+		var atposition = current_email.indexOf("@");
+		var usernamefromemail = current_email.slice(0, atposition);
+		//find if it's morning or afternoon
+		var current_date = new Date();
+		var current_hour = current_date.getHours();
+		if (current_hour > 11 && current_hour < 17) {
+			var ma = "Good Afternoon ";
+		} else if (current_hour >= 17) {
+			var ma = "Good Evening ";
+		} else {
+			var ma = "Good Morning ";
+		};
+		
+		welcomeelem.innerHTML = ma + usernamefromemail;
+		iframehome.style.display="block";
+		} else {
+		//find if it's morning or afternnon
+		var current_date = new Date();
+		var current_hour = current_date.getHours();
+		if (current_hour > 11 && current_hour < 17) {
+			var ma = "Good Afternoon";
+		} else if (current_hour >= 17) {
+			var ma = "Good Evening";
+		} else {
+			var ma = "Good Morning";
+		};
+		
+		welcomeelem.innerHTML = ma;
+		iframehome.style.display="block";
+		}
 	}
+	
 }
 /*function checkuser_enter () {
 	if (characterCode == 13) {
@@ -245,6 +293,7 @@ function nav_createacc() {
 	createacc();
 }
 function nav_home () {
+	sayhi();
 	entire_cart.style.display="none";
 	entire_newarrivals.display="none";
 	entire_account.style.display="none";
@@ -253,6 +302,9 @@ function nav_home () {
 	entire_home.style.display="initial";
 	nav_clearselected();
 	document.getElementById("nav_home").style.backgroundColor="#7aabf9";
+	var iframehome = document.getElementById('iframehome');
+	iframehome.style.display="block";
+	
 }
 function nav_newarrivals () {
 	entire_cart.style.display="none";

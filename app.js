@@ -24,8 +24,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 		document.getElementById("nav_createacc").style.display="none";
 		document.getElementById("nav_account").style.display="block";
 		modal_loggedin();
-		document.getElementById("iframehome").style.overflow="scroll";
-		sayhi();
+		//document.getElementById("iframehome").style.overflow="scroll";
 	} else {
 		loggedin = false;
 		nav_home();
@@ -34,7 +33,6 @@ firebase.auth().onAuthStateChanged(function(user) {
 		document.getElementById("nav_account").style.display="none";
 		document.getElementById("nav_login").style.display="block";
 		document.getElementById("nav_createacc").style.display="block";
-		sayhi();
 	}
 });
 }());
